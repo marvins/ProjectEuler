@@ -3,6 +3,9 @@ Project Euler solutions in different languages.  Mostly for me to remember quirk
 
 
 ##Problems Solved##
-| Problem   | C++    | Fortran | C# |
-| 001       |        | X       |    |
+
+| Problem   | C++    | Fortran | C#  |
+|-----------|--------|---------|-----|
+| 001       |        | X       |     |
+| 002       |        | X       |     |
 
