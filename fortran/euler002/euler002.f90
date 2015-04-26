@@ -11,7 +11,7 @@ PROGRAM Euler002
     INTEGER :: sum, counter, temp_value, max_fib_number, Fmax
 
 !  Set running sum (Start with 2 as that is automatic)
-sum = 2
+sum = 0
 
 !  Define the max value to find fibonacci numbers for
 max_fib_number=4000000
@@ -33,7 +33,7 @@ do counter = 2, Fmax
 end do
 
 !  Print the Sum
-print*, 'Sum:', sum
+print*, sum
 
 !  Exit Program
 end
