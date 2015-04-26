@@ -10,12 +10,16 @@
 #---------------------------#
 cmake_minimum_required( VERSION 2.8 FATAL_ERROR )
 
-
 #-------------------------#
 #-     Project Name      -#
 #-------------------------#
-project( Project-Euler-Solutions )
+#project( Project-Euler-Solutions )
 
+
+#--------------------------------#
+#-     Add C++ Code Samples     -#
+#--------------------------------#
+add_subdirectory( cpp )
 
 #------------------------------------#
 #-     Add Fortran Code Samples     -#

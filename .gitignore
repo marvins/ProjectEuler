@@ -2,4 +2,4 @@ bin
 Makefile
 .*.swp
 CMakeFiles
-cmake*
+cmake_install.cmake

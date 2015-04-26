@@ -2,21 +2,18 @@
 #    Author:  Marvin Smith
 #    Date:    4/25/2015
 #
-#    Purpose:  Build the Project Euler Fortran Examples
+#    Purpose:  Build the Project Euler C++ Examples
 #
 
 #  Set CMake Version
 cmake_minimum_required( VERSION 2.8 FATAL_ERROR )
 
 #  Set the project info
-Project( Project-Euler-Fortran )
-
-#  Enable Fortran
-enable_language( Fortran )
+Project( Project-Euler-CPP )
 
 #  Override Binary Directory
-set( EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/../../bin/fortran )
-set( LIBRARY_OUTPUT_PATH    ${PROJECT_BINARY_DIR}/../../lib/fortran )
+set( EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/../../bin/cpp )
+set( LIBRARY_OUTPUT_PATH    ${PROJECT_BINARY_DIR}/../../lib/cpp )
 
 #  Add Subdirectory
 add_subdirectory( euler001 )

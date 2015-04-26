@@ -27,7 +27,7 @@ DO I=3,999
 end do
 
 !  Print the Sum
-print*, 'Sum:', sum
+print*, sum
 
 !  Exit Program
 end
