@@ -11,31 +11,6 @@ clean_software(){
 
 }
 
-#----------------------------------------#
-#-       Build Python Directory         -#
-#----------------------------------------#
-build_python_module(){
-
-    #  Create output binary path
-    mkdir -p bin/python
-
-    #  Copy all executables over
-    PYFILES=`ls python/euler*/euler*.py`
-    for PYFILE in $PYFILES; do
-        
-        #  Get name 
-        PYBASE=`basename $PYFILE`
-        
-        #  Remove Ext
-        PYFNAME="${PYBASE%.*}"
-
-        #  Copy Files
-        cp $PYFILE bin/python/$PYFNAME
-
-     done
-
-}
-
 #---------------------------------#
 #-       Build Directory         -#
 #---------------------------------#
@@ -90,9 +65,6 @@ make_software(){
     #  Exit Release
     popd
     
-    #  Build Python Module
-    build_python_module
-
 }
 
 #--------------------------------------------------#
