@@ -22,6 +22,7 @@ add_subdirectory( common )
 add_subdirectory( euler001 )
 add_subdirectory( euler002 )
 add_subdirectory( euler010 )
+add_subdirectory( euler011 )
 add_subdirectory( euler022 )
 add_subdirectory( euler057 )
 
