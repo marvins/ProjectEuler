@@ -2,10 +2,12 @@
 #define __PRIME_SIEVE_H__
 
 // C++ Standard Libraries
+#include <cinttypes>
 #include <iostream>
 #include <cmath>
 #include <vector>
 #include <sstream>
+#include <string>
 
 using namespace std;
 
@@ -21,27 +23,28 @@ class Primes{
         /**
          * Constructor
          */
-        Primes( long int maxval, bool debug = false) 
+        Primes( int64_t const& maxval, 
+                bool const&   debug = false) 
             : MAX(maxval)
         {
             // MAX value
             long int root = static_cast<long int>(ceil(sqrt(static_cast<double>(MAX))));
-            pos = 1;
+            m_pos = 1;
             if(debug)cout << "Starting Library Construction" << endl;
 
             // Iterate over data
-            data.begin();
+            m_data.begin();
             for(long int i=0;i<MAX;i++){
-                data.push_back(true);
+                m_data.push_back(true);
             }
 
             // Set 0 to false
-            data[0]=false;
+            m_data[0]=false;
             for(long int i=1;i<=root;i++)
             {
-                if(data[i-1]){
+                if(m_data[i-1]){
                     for( long int j = i*2; j <= MAX; j+= i){
-                        data[j-1] = false;
+                        m_data[j-1] = false;
                         
                         // Print the debugging data
                         if(debug){
@@ -50,9 +53,9 @@ class Primes{
                     }
                 }
 
-                // Print the debugging flag
-                if(debug) cout << endl;
             }
+            // Print the debugging flag
+            if(debug) cout << endl;
 
         }
 
@@ -61,7 +64,7 @@ class Primes{
          * Start Processing Prime Numbers
          */
         void prime_start(){
-            pos = 2;
+            m_pos = 2;
         }
 
 
@@ -70,7 +73,7 @@ class Primes{
          *
          * @param[out] end Check if the value is the last prime number.
          */
-        long int prime_next(bool& end )
+        int64_t prime_next(bool& end )
         {
 
             // Variables
@@ -78,20 +81,20 @@ class Primes{
             long int value,num;
 
             // If the position is below the array size
-            if( pos < data.size() )
+            if( m_pos < m_data.size() )
             {
                 point = is_prime(value);
-                while(!is_prime(pos) && (pos!=-1)){
-                    pos++;
-                    if( pos > MAX ){ 
+                while(!is_prime(m_pos) && (m_pos!=-1)){
+                    m_pos++;
+                    if( m_pos > MAX ){ 
                         end=true; 
                         return 0;
                     }
                 }
 
-                pos++;
+                m_pos++;
 
-                if((pos-1) > data.size()||(pos == -1))
+                if((m_pos-1) > m_data.size()||(m_pos == -1))
                 {
                     end = true;
                     return 0;
@@ -99,7 +102,7 @@ class Primes{
                 else
                 {
                     end = false;
-                    return pos-1;
+                    return m_pos-1;
                 }
             }
             end = true;
@@ -119,7 +122,7 @@ class Primes{
         {
             if(number > 0 && number < MAX)
             {
-                return data[number-1];
+                return m_data[number-1];
             }
             return false;
         }
@@ -127,17 +130,29 @@ class Primes{
 
     private:
 
-        string status(long int x, long int y)const
+        /**
+         * Get the status
+        */
+        std::string status( int64_t const& x,
+                            int64_t const& y ) const
         {
+            // Output stream buffer
             std::ostringstream buff;
+
+            // Compute a z value
             double z = x/(double)y;
+
+            // Create output
             string output = " Building Library [";
 
-            for(int i=0;i<40;i++)
+            // Iterate over output
+            for(int i=0;i<40;i++){
                 if((i/40.0)<(z))
                     output += '*';
                 else
                     output += ' ';
+            }
+
             output += "] ";
             buff << ((x/(double)y)*100);
             output += buff.str();
@@ -146,9 +161,15 @@ class Primes{
             return output;
         }
 
-        vector<bool> data;
-        const long int MAX;
-        long int pos;
+        
+        // Data Array
+        vector<bool> m_data;
+        
+        // Max Value
+        const int64_t MAX;
+
+        // Position
+        int64_t m_pos;
 };
 
 #endif
