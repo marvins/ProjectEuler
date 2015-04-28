@@ -20,7 +20,6 @@ set( LIBRARY_OUTPUT_PATH    ${PROJECT_BINARY_DIR}/../../lib/fortran )
 
 #  Add Subdirectory
 add_subdirectory( euler001 )
-
-#  Add Subdirectory
 add_subdirectory( euler002 )
+add_subdirectory( euler003 )
 

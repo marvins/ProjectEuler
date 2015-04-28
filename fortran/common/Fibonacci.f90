@@ -1,4 +1,4 @@
-!    File:    Fibonacci.f90
+!    File:    FibonacciModule.f90
 !    Author:  Marvin Smith
 !    Date:    4/25/2015
 !
