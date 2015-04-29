@@ -11,7 +11,7 @@ Project Euler solutions in different languages.  Mostly for me to remember quirk
 | 003     | X   |         |        |        |
 | 004     | X   |         |        |        |
 | 005     | X   |         |        |        |
-| 006     |     |         |        |        |
+| 006     | X   |         |        |        |
 | 007     |     |         |        |        |
 | 008     |     |         |        |        |
 | 009     |     |         |        |        |
