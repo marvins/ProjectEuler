@@ -12,7 +12,7 @@ Project Euler solutions in different languages.  Mostly for me to remember quirk
 | 004     | X   |         |        |        |
 | 005     | X   |         |        |        |
 | 006     | X   |         |        |        |
-| 007     |     |         |        |        |
+| 007     | X   |         |        |        |
 | 008     |     |         |        |        |
 | 009     |     |         |        |        |
 | 010     | X   |         |        |        |
