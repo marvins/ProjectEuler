@@ -24,7 +24,11 @@ public:
 	enum Sign { negative = -1, zero = 0, positive = 1 };
 
 protected:
+
+    //// Sign of the number
 	Sign sign;
+
+    /// Big Unsigned Number
 	BigUnsigned mag;
 
 public:

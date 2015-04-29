@@ -41,13 +41,21 @@ void BigUnsigned::setBlock(Index i, Blk newBlock) {
 	}
 }
 
-/* Evidently the compiler wants BigUnsigned:: on the return type because, at
+/**
+ * Evidently the compiler wants BigUnsigned:: on the return type because, at
  * that point, it hasn't yet parsed the BigUnsigned:: on the name to get the
- * proper scope. */
-BigUnsigned::Index BigUnsigned::bitLength() const {
-	if (isZero())
+ * proper scope. 
+*/
+BigUnsigned::Index BigUnsigned::bitLength() const 
+{
+    // Check if the value is zero
+	if (isZero()){
 		return 0;
+    }
+
+    // Otherwise
 	else {
+
 		Blk leftmostBlock = getBlock(len - 1);
 		Index leftmostBlockLen = 0;
 		while (leftmostBlock != 0) {

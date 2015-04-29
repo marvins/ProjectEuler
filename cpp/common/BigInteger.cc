@@ -10,22 +10,34 @@ void BigInteger::operator =(const BigInteger &x) {
 	mag = x.mag;
 }
 
-BigInteger::BigInteger(const Blk *b, Index blen, Sign s) : mag(b, blen) {
-	switch (s) {
-	case zero:
-		if (!mag.isZero())
-			throw "BigInteger::BigInteger(const Blk *, Index, Sign): Cannot use a sign of zero with a nonzero magnitude";
-		sign = zero;
-		break;
-	case positive:
-	case negative:
-		// If the magnitude is zero, force the sign to zero.
-		sign = mag.isZero() ? zero : s;
-		break;
-	default:
-		/* g++ seems to be optimizing out this case on the assumption
-		 * that the sign is a valid member of the enumeration.  Oh well. */
-		throw "BigInteger::BigInteger(const Blk *, Index, Sign): Invalid sign";
+
+/*************************************/
+/*            Constructor            */
+/*************************************/
+BigInteger::BigInteger(const Blk *b, Index blen, Sign s) 
+    : mag(b, blen)
+{
+    // Switch
+	switch (s){
+	
+        // Check if we are zero
+        case zero:
+		    if (!mag.isZero()){
+			    throw "BigInteger::BigInteger(const Blk *, Index, Sign): Cannot use a sign of zero with a nonzero magnitude";
+		    }
+            sign = zero;
+		    break;
+	    
+        case positive:
+	    case negative:
+		    // If the magnitude is zero, force the sign to zero.
+		    sign = mag.isZero() ? zero : s;
+	    	break;
+	
+        default:
+		    /* g++ seems to be optimizing out this case on the assumption
+		    * that the sign is a valid member of the enumeration.  Oh well. */
+		    throw "BigInteger::BigInteger(const Blk *, Index, Sign): Invalid sign";
 	}
 }
 
@@ -102,9 +114,15 @@ X BigInteger::convertToUnsignedPrimitive() const {
  * nonnegative and negative numbers. */
 template <class X, class UX>
 X BigInteger::convertToSignedPrimitive() const {
-	if (sign == zero)
+	
+    // Check if the sign is zero
+    if (sign == zero){
 		return 0;
-	else if (mag.getLength() == 1) {
+    }
+
+    // Otherwise, if the length is one
+	else if (mag.getLength() == 1) 
+    {
 		// The single block might fit in an X.  Try the conversion.
 		Blk b = mag.getBlock(0);
 		if (sign == positive) {

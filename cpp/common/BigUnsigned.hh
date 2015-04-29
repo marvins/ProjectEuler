@@ -1,28 +1,41 @@
+/**
+ * @file    BigUnsigned.hh
+ * @author  Marvin Smith
+ * @date    4/28/2015
+*/
 #ifndef BIGUNSIGNED_H
 #define BIGUNSIGNED_H
 
 #include "NumberlikeArray.hh"
 
-/* A BigUnsigned object represents a nonnegative integer of size limited only by
+/**
+ * A BigUnsigned object represents a nonnegative integer of size limited only by
  * available memory.  BigUnsigneds support most mathematical operators and can
  * be converted to and from most primitive integer types.
  *
  * The number is stored as a NumberlikeArray of unsigned longs as if it were
  * written in base 256^sizeof(unsigned long).  The least significant block is
- * first, and the length is such that the most significant block is nonzero. */
-class BigUnsigned : protected NumberlikeArray<unsigned long> {
+ * first, and the length is such that the most significant block is nonzero. 
+*/
+class BigUnsigned : public NumberlikeArray<unsigned long> {
 
 public:
+
 	// Enumeration for the result of a comparison.
-	enum CmpRes { less = -1, equal = 0, greater = 1 };
+	enum CmpRes { less = -1, 
+                  equal = 0, 
+                  greater = 1 
+                };
 
 	// BigUnsigneds are built with a Blk type of unsigned long.
 	typedef unsigned long Blk;
 
 	typedef NumberlikeArray<Blk>::Index Index;
-	NumberlikeArray<Blk>::N;
+
+	//NumberlikeArray<Blk>::N;
 
 protected:
+
 	// Creates a BigUnsigned with a capacity; for internal use.
 	BigUnsigned(int, Index c) : NumberlikeArray<Blk>(0, c) {}
 
@@ -76,16 +89,18 @@ public:
 	unsigned short toUnsignedShort() const;
 	short          toShort        () const;
 protected:
+
 	// Helpers
 	template <class X> X convertToSignedPrimitive() const;
 	template <class X> X convertToPrimitive      () const;
+
 public:
 
 	// BIT/BLOCK ACCESSORS
 
 	// Expose these from NumberlikeArray directly.
-	NumberlikeArray<Blk>::getCapacity;
-	NumberlikeArray<Blk>::getLength;
+	//NumberlikeArray<Blk>::getCapacity;
+	//NumberlikeArray<Blk>::getLength;
 
 	/* Returns the requested block, or 0 if it is beyond the length (as if
 	 * the number had 0s infinitely to the left). */

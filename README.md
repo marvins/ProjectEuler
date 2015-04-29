@@ -8,9 +8,9 @@ Project Euler solutions in different languages.  Mostly for me to remember quirk
 |---------|-----|---------|--------|--------|
 | 001     | X   | X       | X      | X      |
 | 002     | X   | X       | X      | X      |
-| 003     |     |         |        |        |
-| 004     |     |         |        |        |
-| 005     |     |         |        |        |
+| 003     | X   |         |        |        |
+| 004     | X   |         |        |        |
+| 005     | X   |         |        |        |
 | 006     |     |         |        |        |
 | 007     |     |         |        |        |
 | 008     |     |         |        |        |
@@ -18,7 +18,7 @@ Project Euler solutions in different languages.  Mostly for me to remember quirk
 | 010     | X   |         |        |        |
 | 011     | X   |         |        |        |
 | 012     |     |         |        |        |
-| 013     |     |         |        |        |
+| 013     | X   |         |        |        |
 | 014     |     |         |        |        |
 | 015     |     |         |        |        |
 | 016     |     |         |        |        |

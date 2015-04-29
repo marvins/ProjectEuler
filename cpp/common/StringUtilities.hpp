@@ -8,7 +8,7 @@
 #include <string>
 
 /**
- *  Convert a string to a number
+ *  @brief Convert a string to a number
  */
 template <typename TP>
 TP str2num( std::string const& value ){
@@ -21,7 +21,7 @@ TP str2num( std::string const& value ){
 }
 
 /**
- *  Convert a number to a string
+ *  @brief Convert a number to a string
  */
 template <typename TP>
 std::string num2str( TP const& value ){
@@ -29,6 +29,20 @@ std::string num2str( TP const& value ){
     std::stringstream sin;
     sin << value;
     return sin.str();
+}
+
+/**
+ * @brief Check if a number is a palindrome
+ */
+bool is_palindrome( const std::string& number ){
+    
+    // Iterate over the number
+    for( int i=0; i<(number.size()/2); i++ ){
+        if( number[i] != number[number.size()-i-1] ){ 
+            return false;
+        }
+    }
+    return true;
 }
 
 #endif
