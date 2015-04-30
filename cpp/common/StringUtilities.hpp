@@ -6,6 +6,7 @@
 
 #include <sstream>
 #include <string>
+#include <vector>
 
 /**
  *  @brief Convert a string to a number
@@ -19,6 +20,26 @@ TP str2num( std::string const& value ){
     sin >> result;
     return result;
 }
+
+/**
+ * @brief Convert a String to a Number List
+*/
+std::vector<int> str2num_array( std::string const& data )
+{
+    // Output 
+    std::vector<int> output;
+
+    // Iterate over output
+    for( int i=0; i<data.size(); i++ ){
+
+        // Convert to string
+        output.push_back(data[i] - '0');
+    }
+
+    // return data
+    return output;
+}
+
 
 /**
  *  @brief Convert a number to a string
