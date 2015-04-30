@@ -17,11 +17,11 @@ Project Euler solutions in different languages.  Mostly for me to remember quirk
 | 009     | X   |         |        |        |
 | 010     | X   |         |        |        |
 | 011     | X   |         |        |        |
-| 012     |     |         |        |        |
+| 012     | X   |         |        |        |
 | 013     | X   |         |        |        |
-| 014     |     |         |        |        |
-| 015     |     |         |        |        |
-| 016     |     |         |        |        |
+| 014     | X   |         |        |        |
+| 015     | X   |         |        |        |
+| 016     | X   |         |        |        |
 | 017     |     |         |        |        |
 | 018     |     |         |        |        |
 | 019     |     |         |        |        |

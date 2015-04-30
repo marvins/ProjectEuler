@@ -1,23 +1,22 @@
 #    File:    CMakeLists.txt
 #    Author:  Marvin Smith
-#    Date:    4/25/2015
+#    Date:    4/28/2015
 #
-#    Purpose: Build Project Euler 003 C++ Example
+#    Purpose: Build Project Euler 015 C++ Example
 #
 
 
 #-------------------------------#
 #-      Define our Sources     -#
 #-------------------------------#
-set( Euler003_Sources
-     euler003.cpp
-     Primesieve.hpp
+set( Euler015_Sources
+     euler015.cpp
 )
 
 #----------------------------------#
 #-      Build the Executable      -#
 #----------------------------------#
-add_executable( euler003
-                ${Euler003_Sources}
+add_executable( euler015
+                ${Euler015_Sources}
 )
 

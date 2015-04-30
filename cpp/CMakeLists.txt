@@ -11,6 +11,12 @@ cmake_minimum_required( VERSION 2.8 FATAL_ERROR )
 #  Set the project info
 Project( Project-Euler-CPP )
 
+#----------------------------#
+#-        Allow C++ 11x     -#
+#----------------------------#
+SET(CMAKE_CXX_FLAGS "-std=c++11")
+
+
 #  Override Binary Directory
 set( EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/../../bin/cpp )
 set( LIBRARY_OUTPUT_PATH    ${PROJECT_BINARY_DIR}/../../lib/cpp )
@@ -32,6 +38,11 @@ add_subdirectory( euler010 )
 add_subdirectory( euler011 )
 add_subdirectory( euler012 )
 add_subdirectory( euler013 )
+add_subdirectory( euler014 )
+add_subdirectory( euler015 )
+add_subdirectory( euler016 )
+add_subdirectory( euler017 )
+add_subdirectory( euler018 )
 add_subdirectory( euler022 )
 add_subdirectory( euler057 )
 
