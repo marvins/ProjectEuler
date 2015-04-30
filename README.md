@@ -22,8 +22,8 @@ Project Euler solutions in different languages.  Mostly for me to remember quirk
 | 014     | X   |         |        |        |
 | 015     | X   |         |        |        |
 | 016     | X   |         |        |        |
-| 017     |     |         |        |        |
-| 018     |     |         |        |        |
+| 017     | X   |         |        |        |
+| 018     | X   |         |        |        |
 | 019     |     |         |        |        |
 | 020     |     |         |        |        |
 | 021     |     |         |        |        |
