@@ -11,6 +11,8 @@
 set( BigInteger_SOURCES 
      BigInteger.cc
      BigInteger.hh
+     BigIntegerAlgorithms.cc
+     BigIntegerAlgorithms.hh
      BigIntegerUtils.cc
      BigIntegerUtils.hh
      BigUnsigned.cc
@@ -19,6 +21,7 @@ set( BigInteger_SOURCES
      BigUnsignedInABase.hh
 )
 
+include_directories(.)
 
 #-------------------------------#
 #-      Create the Library     -#
