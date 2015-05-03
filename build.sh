@@ -1,5 +1,12 @@
 #!/bin/sh
 
+#----------------------------#
+#-       Global Flags       -#
+#----------------------------#
+NUM_THREADS_FLAG=0
+NUM_THREADS=1
+
+
 #--------------------------------#
 #-        Clean Software        -#
 #--------------------------------#
@@ -33,7 +40,7 @@ build_module(){
     fi
 
     #  Run Make
-    make
+    make -j${NUM_THREADS}
     if [ ! "$?" = '0' ]; then
         echo 'Error with Make. Aborting.'
         exit 1
@@ -85,6 +92,25 @@ for ARG in "$@"; do
             make_software
             exit 0
             ;;
+
+        #  Set number of threads
+        '-j')
+            NUM_THREADS_FLAG=1
+            ;;
+
+        #  Parse other args
+        *)
+            
+            #  Check if Num Threads flag requested
+            if [ "$NUM_THREADS_FLAG" = '1' ]; then
+                NUM_THREADS_FLAG=0
+                NUM_THREADS=$ARG
+
+            # Otherwise, error
+            else
+                echo "error: Unknown argument ($ARG)"
+                exit 1
+            fi
     esac
 
 done

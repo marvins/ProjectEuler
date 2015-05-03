@@ -3,11 +3,13 @@
 
 // C++ Standard Libraries
 #include <cinttypes>
-#include <iostream>
 #include <cmath>
-#include <vector>
+#include <iostream>
+#include <memory>
 #include <sstream>
 #include <string>
+#include <type_traits>
+#include <vector>
 
 using namespace std;
 
@@ -16,40 +18,54 @@ using namespace std;
  *  
  *  Implements a basic prime sieve
  */
+template < typename DATATYPE, 
+           typename DEBUG = std::false_type>
 class Primes{
 
     public:
+
+        /// Define our datatype
+        typedef DATATYPE datatype;
         
         /**
-         * @brief Constructor given maximum value and debugging flag.
+         * @brief Constructor given maximum value.
          */
-        Primes( int64_t const& maxval, 
-                bool const&   debug = false) 
-            : MAX(maxval)
+        Primes( datatype const&  max_prime,
+                bool const&      debug = false )
+            : m_max_prime_value(max_prime),
+              m_data(std::vector<bool>(max_prime,true)),
+              m_pos(2)
         {
-            // MAX value
-            long int root = static_cast<long int>(ceil(sqrt(static_cast<double>(MAX))));
-            m_pos = 1;
-            if(debug)cout << "Starting Library Construction" << endl;
-
-            // Iterate over data
-            m_data.begin();
-            for(long int i=0;i<MAX;i++){
-                m_data.push_back(true);
+            
+            //  Log Entry
+            if( std::is_same<DEBUG,std::true_type>::value == true ){
+                cout << "Starting Library Construction" << endl;
             }
+            
+            // The root can be used to crunch the rough number of primes
+            datatype root = static_cast<datatype>(ceil(sqrt(static_cast<double>(m_max_prime_value))));
 
-            // Set 0 to false
-            m_data[0]=false;
-            for(long int i=1;i<=root;i++)
+            // Test Primes
+            m_data[0] = false;
+            for(datatype i=1;i<=root;i++)
             {
+                // Check if the previous value is true
                 if(m_data[i-1]){
-                    for( long int j = i*2; j <= MAX; j+= i){
+
+                    // For each prime, set each multiple of it 
+                    // in the data list to false since they will be divisible by us.
+                    for( datatype j = i*2; 
+                         j <= m_max_prime_value; 
+                         j+= i)
+                    {
+                        // Falsify the prime status
                         m_data[j-1] = false;
                         
                         // Print the debugging data
-                        if(debug){
+                        if( std::is_same<DEBUG,std::true_type>::value == true ){
                             cout << status(i,root);
                         }
+                        
                     }
                 }
 
@@ -86,7 +102,7 @@ class Primes{
                 point = is_prime(value);
                 while(!is_prime(m_pos) && (m_pos!=-1)){
                     m_pos++;
-                    if( m_pos > MAX ){ 
+                    if( m_pos > m_max_prime_value ){ 
                         end=true; 
                         return 0;
                     }
@@ -120,7 +136,7 @@ class Primes{
          */
         bool is_prime(const long int& number ) const
         {
-            if(number > 0 && number < MAX)
+            if(number > 0 && number < m_max_prime_value)
             {
                 return m_data[number-1];
             }
@@ -135,7 +151,7 @@ class Primes{
         int Get_Number_Primes()const
         {
             int sum = 0;
-            for( int i=0; i<MAX; i++ ){
+            for( int i=0; i<m_max_prime_value; i++ ){
                 if( m_data[i] ){
                     sum++;
                 }
@@ -179,13 +195,13 @@ class Primes{
 
         
         // Data Array
-        vector<bool> m_data;
+        std::vector<bool> m_data;
         
-        // Max Value
-        const int64_t MAX;
+        /// Max Prime Value
+        const datatype  m_max_prime_value;
 
-        // Position
-        int64_t m_pos;
+        // Current Iterator Position
+        datatype m_pos;
 };
 
 #endif

@@ -17,10 +17,13 @@
 
 using namespace std;
 
+// Set our Prime Datatype
+typedef int16_t PRIME_DATATYPE;
+
 /**
  * @brief Compute Prime Denom Cycle using Fermat's Algorithm.
 */
-void Fermat_Prime_Cycle_Compute( Primes& primes )
+void Fermat_Prime_Cycle_Compute( Primes<PRIME_DATATYPE>& primes )
 {
     
     // Start the prime iterator
@@ -84,10 +87,10 @@ int main( int argc, char* argv[] )
 {
   
     // Define the max value
-    const int64_t max_value = 1000;
+    const int32_t max_value = 1000;
 
     // Create Prime List
-    Primes primes(max_value);
+    Primes<PRIME_DATATYPE> primes(max_value);
     
     // Compute Recurring Cycle Using Fermat's Algorithm
     Fermat_Prime_Cycle_Compute( primes );

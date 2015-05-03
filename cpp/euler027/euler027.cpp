@@ -33,7 +33,7 @@ int main( int argc, char* argv[] ){
     int64_t max_prime = 100000;
 
     // Create the Prime Sieve
-    Primes primes( max_prime, true );
+    Primes<int32_t> primes( max_prime, true );
 
     // Skip over the first few prime numbers
     bool last_prime;

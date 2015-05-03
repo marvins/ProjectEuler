@@ -1,6 +1,6 @@
 #    File:    CMakeLists.txt
 #    Author:  Marvin Smith
-#    Date:    5/2/3015
+#    Date:    5/2/2015
 #
 #    Purpose: Build Project Euler 030 C++ Example
 #

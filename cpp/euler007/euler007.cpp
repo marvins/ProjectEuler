@@ -20,7 +20,7 @@ int main( int argc, char* argv[] )
     bool last_prime;
 
     // Create a primesieve
-    Primes sieve(max_value, true); 
+    Primes<int64_t> sieve(max_value, true); 
     
     // Iterate over each prime
     for( int i=0; i<10001; i++ ){

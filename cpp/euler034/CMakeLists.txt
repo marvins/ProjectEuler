@@ -2,23 +2,23 @@
 #    Author:  Marvin Smith
 #    Date:    5/2/2015
 #
-#    Purpose: Build Project Euler 032 C++ Example
+#    Purpose: Build Project Euler 034 C++ Example
 #
 
 
 #-------------------------------#
 #-      Define our Sources     -#
 #-------------------------------#
-set( Euler032_Sources
-     euler032.cpp
-     ../common/Permutation_Engine.hpp
+set( Euler034_Sources
+     euler034.cpp
+     ../common/Math_Utilities.hpp
 )
 
 #----------------------------------#
 #-      Build the Executable      -#
 #----------------------------------#
-add_executable( euler032
-                ${Euler032_Sources}
+add_executable( euler034
+                ${Euler034_Sources}
 )
 
 
