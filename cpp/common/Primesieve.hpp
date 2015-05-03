@@ -19,9 +19,9 @@ using namespace std;
 class Primes{
 
     public:
-
+        
         /**
-         * Constructor
+         * @brief Constructor given maximum value and debugging flag.
          */
         Primes( int64_t const& maxval, 
                 bool const&   debug = false) 
@@ -125,6 +125,22 @@ class Primes{
                 return m_data[number-1];
             }
             return false;
+        }
+
+        /**
+         * @brief Check the number of primes
+         *
+         * @return Number of primes.
+        */
+        int Get_Number_Primes()const
+        {
+            int sum = 0;
+            for( int i=0; i<MAX; i++ ){
+                if( m_data[i] ){
+                    sum++;
+                }
+            }
+            return sum;
         }
 
 

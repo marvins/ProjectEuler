@@ -1,5 +1,11 @@
 #include "BigUnsignedInABase.hh"
 
+// C++ Standard Libraries
+#include <iostream>
+
+/*************************/
+/*      Constructor      */
+/*************************/
 BigUnsignedInABase::BigUnsignedInABase(const Digit *d, Index l, Base base)
 	: NumberlikeArray<Digit>(d, l), base(base) {
 	// Check the base
@@ -70,6 +76,9 @@ BigUnsignedInABase::operator BigUnsigned() const {
 	return ans;
 }
 
+/**
+ * @brief Constructor given a string
+*/
 BigUnsignedInABase::BigUnsignedInABase(const std::string &s, Base base) {
 	// Check the base.
 	if (base > 36)
@@ -102,7 +111,11 @@ BigUnsignedInABase::BigUnsignedInABase(const std::string &s, Base base) {
 	zapLeadingZeros();
 }
 
-BigUnsignedInABase::operator std::string() const {
+/**
+ * Convert to String
+*/
+BigUnsignedInABase::operator std::string() const 
+{
 	if (base > 36)
 		throw "BigUnsignedInABase ==> std::string: The default string conversion routines use the symbol set 0-9, A-Z and therefore support only up to base 36.  You tried a conversion with a base over 36; write your own string conversion routine.";
 	if (len == 0)

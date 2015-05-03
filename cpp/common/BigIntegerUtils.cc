@@ -42,6 +42,9 @@ std::ostream &operator <<(std::ostream &os, const BigUnsigned &x) {
 	return os;
 }
 
+/**
+ * Output Stream Operator
+*/
 std::ostream &operator <<(std::ostream &os, const BigInteger &x) {
 	if (x.getSign() == BigInteger::negative)
 		os << '-';
