@@ -66,4 +66,68 @@ bool is_palindrome( const std::string& number ){
     return true;
 }
 
+/**
+ * @brief Strip String
+*/
+std::string String_Strip( const std::string& input,
+                          const std::string& pattern )
+{
+    // Flag on if we should strip
+    bool strip_char = false;
+
+    // Iterate through value
+    std::string value = input;
+    int i=0;
+    while( value.size() > 0 ){
+
+        // iterate through each pattern
+        strip_char = false;
+        for( int j=0; j<pattern.size(); j++ ){
+            if( value.front() == pattern[j] ){
+                strip_char = true;
+                break;
+            }
+        }
+
+        // if we need to strip, then strip
+        if( strip_char == true ){
+            value = value.substr(1);
+        } 
+        
+        // Otherwise stop working once we don't have to strip
+        else{
+            break;
+        }
+
+        // increment i
+        i++;
+    }
+    
+    // Move right to left
+    i = value.size()-1;
+    while( value.size() > 0 ){
+
+        // iterate through each pattern
+        strip_char = false;
+        for( int j=0; j<pattern.size(); j++ ){
+            if( value.back() == pattern[j] ){
+                strip_char = true;
+                break;
+            }
+        }
+
+        // if we need to strip, then strip
+        if( strip_char == true ){
+            value = value.substr(0, value.size()-1);
+        } else{
+            break;
+        }
+
+        // deccrement i
+        i--;
+    }
+
+    return value;
+}
+
 #endif

@@ -11,6 +11,7 @@
 #include <cinttypes>
 #include <deque>
 #include <iterator>
+#include <set>
 #include <sstream>
 #include <vector>
 
@@ -103,6 +104,35 @@ std::vector<int> Compute_Divisors( const int64_t& sum )
     return divisors;
 }
 
+/**
+ * @brief Compute Prime Divisors
+*/
+void Compute_Prime_Divisors( const int64_t&  sum, 
+                             std::set<int>&  divisors )
+{
+    // Create temp list
+    std::set<int> temp_divisors;
+
+    // Iterate over values
+    for( int i=2; i<=(sum-1); i++ ){
+        if( (sum % i) == 0 ){
+            
+            // Compute divisors of value
+            Compute_Prime_Divisors( i, temp_divisors );
+
+            // Check if prime divisor
+            if( temp_divisors.size() <= 0 ){
+                divisors.insert(i);
+            }
+
+            // Otherwise, call recursively
+            else{
+                Compute_Prime_Divisors( i, divisors);
+            }
+        }
+    }
+
+}
 
 /**
  * @brief Create Bit Array
@@ -176,7 +206,7 @@ bool Is_Palindrome( const DATATYPE& value )
 bool Is_Pandigital( const std::string& value )
 {
     // Create histogram
-    std::vector<bool> histogram(9,false);
+    std::vector<bool> histogram(value.size(),false);
 
     // Error check
     if( value.size() > 9 ){
@@ -190,7 +220,7 @@ bool Is_Pandigital( const std::string& value )
     }
 
     // Check if any false
-    for( int i=0; i<histogram.size(); i++ ){
+    for( int i=0; i<value.size(); i++ ){
         if( histogram[i] == false ){ return false; }
     }
     return true;

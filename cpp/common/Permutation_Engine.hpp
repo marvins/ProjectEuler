@@ -23,8 +23,9 @@ void print( vector<_Tp1>& );
 
 
 
-
-//FUNCTION DEFINITIONS
+/**
+ * @brief Compute Permutations of the given number array.
+ */
 template<typename _Tp1, typename _Tp2, typename _FuncT>
 void permute_pandigital(  vector<_Tp1>& list, 
                           vector<vector<_Tp1> >& results, 
