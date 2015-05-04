@@ -52,8 +52,8 @@ Project Euler solutions in different languages.  Mostly for me to remember quirk
 | 044     | X   |         |        |        |
 | 045     | X   |         |        |        |
 | 046     | X   |         |        |        |
-| 047     |     |         |        |        |
-| 048     |     |         |        |        |
+| 047     | X   |         |        |        |
+| 048     | X   |         |        |        |
 | 049     |     |         |        |        |
 | 050     |     |         |        |        |
 | 051     |     |         |        |        |
