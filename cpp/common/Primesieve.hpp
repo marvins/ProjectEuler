@@ -60,13 +60,13 @@ class Primes{
                     {
                         // Falsify the prime status
                         m_data[j-1] = false;
-                        
-                        // Print the debugging data
-                        if( std::is_same<DEBUG,std::true_type>::value == true ){
-                            cout << status(i,root);
-                        }
-                        
                     }
+
+                    // Print the debugging data
+                    if( std::is_same<DEBUG,std::true_type>::value == true ){
+                       cout << status(i,root);
+                    }
+
                 }
 
             }
