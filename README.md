@@ -64,5 +64,15 @@ Project Euler solutions in different languages.  Mostly for me to remember quirk
 | 056     | X   |         |        |        |
 | 057     | X   |         |        |        |
 | 058     | X   |         |        |        |
-| 059     |     |         |        |        |
+| 059     | X   |         |        |        |
+| 060     | X   |         |        |        |
+| 061     |     |         |        |        |
+| 062     |     |         |        |        |
+| 063     |     |         |        |        |
+| 064     |     |         |        |        |
+| 065     |     |         |        |        |
+| 066     |     |         |        |        |
+| 067     |     |         |        |        |
+| 068     |     |         |        |        |
+| 069     |     |         |        |        |
 

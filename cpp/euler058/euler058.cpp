@@ -54,9 +54,6 @@ int main( int argc, char* argv[] )
 
         }
 
-        // Update the ratio
-        ratio = prime_counter / (double)corner_counter;
-
         // Check the ratio
         if(( (double)prime_counter / corner_counter) < 0.1){
             std::cout << side_length-1 << std::endl;

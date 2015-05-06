@@ -160,6 +160,28 @@ class Primes{
         }
 
 
+        /**
+         * @brief Get a single list of primes
+         *
+         * @return prime list
+        */
+        std::vector<datatype> Get_Prime_List( const int& max_prime )const{
+            
+            // Create output container
+            std::vector<datatype> output;
+            
+            // Iterate over list
+            int64_t counter = 0;
+            int min_val = std::min( (int64_t)max_prime, (int64_t)m_data.size());
+            for( int i=0; i<min_val; i++ ){
+                if( m_data[i] == true ){
+                    output.push_back(i+1);
+                }
+            }
+            return output;
+        }
+
+
     private:
 
         /**
