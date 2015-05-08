@@ -5,6 +5,7 @@
  */
 #include <algorithm>
 #include <array>
+#include <bitset>
 #include <cmath>
 #include <deque>
 #include <iomanip>
@@ -90,9 +91,6 @@ void Compute_Solution( std::array<uint16_t,6>& data,
                        int                     sum )
 {
 
-    // Flags
-    bool is_polygonal;
-
     // Check if 6
     if( index == 6 ){
 
@@ -138,7 +136,6 @@ void Compute_Solution( std::array<uint16_t,6>& data,
         data[index] = i;
 
         // Proceed
-        bool swap_flag = false;
         for( int j=0; j<6; j++ ){
             if( Is_Polygonal(j, i) == true && polys_set[j] == 0 ){
                 polys_set[j] = 1;
@@ -164,7 +161,7 @@ int main( int argc, char* argv[] ){
     }
     
     // iterate through the list, building the sets
-    for( size_t i=3; i<=8; i++ ){
+    for( int i=3; i<=8; i++ ){
 
         // counter
         x = 0;

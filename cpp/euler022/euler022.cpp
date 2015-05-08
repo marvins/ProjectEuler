@@ -45,14 +45,14 @@ int main( int argc, char* argv[] )
     sort ( list.begin() , list.end() );
 
     // Iterate through the names
-    for(int i=0;i<list.size();i++)
+    for(int i=0;i<(int)list.size();i++)
     {
         // Get the next name
         name = list[i];
         letter = 0;
 
         // Sum the name
-        for(int j=0;j<name.length();j++)
+        for(int j=0;j<(int)name.length();j++)
             letter += letter_val(name[j]);
       
         // Add to the running sum

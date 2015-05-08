@@ -73,7 +73,7 @@ int main(int argc , char *argv[])
     // Run permutations
     permute_pandigital(list, results, 0, count, false, Euler43);
 
-    for(int i=0;i<results.size();i++)
+    for(int i=0;i<(int)results.size();i++)
         for(int j=count-1;j>=0;j--)
             sum += results[i][j]*pow(10,9-j);
 

@@ -58,7 +58,7 @@ LIST_TYPE Split_Digits( const TP& number )
     std::string numstr;
     sin >> numstr;
 
-    for( int i=0; i<numstr.size(); i++ ){
+    for( int i=0; i<(int)numstr.size(); i++ ){
         output.push_back(numstr[i] - '0');
     }
 
@@ -148,7 +148,6 @@ LIST_TYPE  To_Bit_Array( DATATYPE const& value )
 
     // Iterate while our value is greater than zero
     DATATYPE temp_val = value;
-    DATATYPE remainder;
     while( temp_val > 0 ){
         
         // Add to output
@@ -160,7 +159,7 @@ LIST_TYPE  To_Bit_Array( DATATYPE const& value )
     }
 
     // Check size
-    if( output.size() <= 0 ){
+    if( (int)output.size() <= 0 ){
         output.push_back(false);
     }
 
@@ -186,7 +185,7 @@ bool Is_Palindrome( const DATATYPE& value )
 {
     
     // Iterate over string
-    for( int i=0; i<(value.size()/2); i++ )
+    for( int i=0; i<((int)value.size()/2); i++ )
     {
         if( value[i] != value[value.size()-i-1]){
             return false;
@@ -209,18 +208,18 @@ bool Is_Pandigital( const std::string& value )
     std::vector<bool> histogram(value.size(),false);
 
     // Error check
-    if( value.size() > 9 ){
+    if( (int)value.size() > 9 ){
         return false;
     }
 
     // Iterate over string
-    for( int i=0; i<value.size(); i++ ){
+    for( int i=0; i<(int)value.size(); i++ ){
         if( value[i] < '1' || value[i] > '9' ){ return false;}
         histogram[value[i] - '1'] = true;
     }
 
     // Check if any false
-    for( int i=0; i<value.size(); i++ ){
+    for( int i=0; i<(int)value.size(); i++ ){
         if( histogram[i] == false ){ return false; }
     }
     return true;

@@ -49,7 +49,7 @@ bool Is_Triangle_Word( const std::string& word ){
 
     // Convert word to sum value
     int64_t  sum = 0;
-    for( int i=0; i<word.size(); i++ ){
+    for( int i=0; i<(int)word.size(); i++ ){
         sum += word[i] - 'A' + 1;
     }
 

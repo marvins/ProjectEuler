@@ -33,7 +33,7 @@ int main( int argc, char* argv[] ){
         sum = 0;
 
         // Check the factorial of each digit and sum
-        for( int digit=0; digit < digits.size(); digit++ ){
+        for( int digit=0; digit < (int)digits.size(); digit++ ){
 
             // Add to Sum
             sum += Factorial( digits[digit] );

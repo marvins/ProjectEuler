@@ -49,8 +49,8 @@ int main(int argc,char* argv[])
 
 
     // Build the list of values which are a sum of two abundant values
-    for(int64_t i=0; i<divisor_sums.size(); i++){
-    for(int64_t j=0; j<divisor_sums.size(); j++){
+    for(int64_t i=0; i<(int)divisor_sums.size(); i++){
+    for(int64_t j=0; j<(int)divisor_sums.size(); j++){
 
         // Check if the sum is less than the max
         if( divisor_sums[i] + divisor_sums[j] < max_value)

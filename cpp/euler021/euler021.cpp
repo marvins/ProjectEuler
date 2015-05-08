@@ -44,12 +44,12 @@ int main(int argc,char* argv[])
     std::vector<int64_t> sum_divisors( max_value + 1);
 
     // Iterate over range
-    for(int i=2; i<= sum_divisors.size(); i++)
+    for(int i=2; i<= (int)sum_divisors.size(); i++)
       sum_divisors[i] = sum(i);
     
     // Compare values
     int64_t result_sum = 0;
-    for( int i=2; i<= sum_divisors.size(); i++)
+    for( int i=2; i<= (int)sum_divisors.size(); i++)
     {
         // Check if the amicable values are the same
       if( i == sum_divisors[sum_divisors[i]] && sum_divisors[i] !=0 && i != sum_divisors[i])

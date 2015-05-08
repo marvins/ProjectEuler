@@ -26,13 +26,13 @@ std::vector<int8_t> Build_Fraction( const int64_t& max_length )
     // Start iterating until the length maxes out
     int64_t counter = 1;
     std::string temp_val;
-    while( output.size() < max_length )
+    while( (int64_t)output.size() < max_length )
     {
         // Get the string value of the counter
         temp_val = num2str( counter );
 
         // Add to the output
-        for( int i=0; i<temp_val.size(); i++ ){
+        for( int i=0; i<(int)temp_val.size(); i++ ){
             output.push_back( temp_val[i] - '0');
         }
 

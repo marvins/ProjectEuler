@@ -30,7 +30,7 @@ std::vector<int> str2num_array( std::string const& data )
     std::vector<int> output;
 
     // Iterate over output
-    for( int i=0; i<data.size(); i++ ){
+    for( int i=0; i<(int)data.size(); i++ ){
 
         // Convert to string
         output.push_back(data[i] - '0');
@@ -58,7 +58,7 @@ std::string num2str( TP const& value ){
 bool is_palindrome( const std::string& number ){
     
     // Iterate over the number
-    for( int i=0; i<(number.size()/2); i++ ){
+    for( int i=0; i<(int)(number.size()/2); i++ ){
         if( number[i] != number[number.size()-i-1] ){ 
             return false;
         }
@@ -82,7 +82,7 @@ std::string String_Strip( const std::string& input,
 
         // iterate through each pattern
         strip_char = false;
-        for( int j=0; j<pattern.size(); j++ ){
+        for( int j=0; j<(int)pattern.size(); j++ ){
             if( value.front() == pattern[j] ){
                 strip_char = true;
                 break;
@@ -109,7 +109,7 @@ std::string String_Strip( const std::string& input,
 
         // iterate through each pattern
         strip_char = false;
-        for( int j=0; j<pattern.size(); j++ ){
+        for( int j=0; j<(int)pattern.size(); j++ ){
             if( value.back() == pattern[j] ){
                 strip_char = true;
                 break;

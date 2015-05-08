@@ -73,14 +73,9 @@ class Primes{
         long int prime_next(bool& end )
         {
 
-            // Variables
-            bool point = false;
-            long int value,num;
-
             // If the position is below the array size
-            if( pos < data.size() )
+            if( pos < (int)data.size() )
             {
-                point = is_prime(value);
                 while(!is_prime(pos) && (pos!=-1)){
                     pos++;
                     if( pos > MAX ){ 
@@ -91,7 +86,7 @@ class Primes{
 
                 pos++;
 
-                if((pos-1) > data.size()||(pos == -1))
+                if((pos-1) > (int)data.size()||(pos == -1))
                 {
                     end = true;
                     return 0;

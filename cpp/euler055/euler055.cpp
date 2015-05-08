@@ -43,7 +43,7 @@ bool isLychrel( const int& value, const int& maxIterations = 50 ){
     BigInteger current_sum = value;
     
     // begin iterating from 0 to maxIterations
-    for( size_t i=0; i<maxIterations; i++ ){
+    for( int i=0; i<maxIterations; i++ ){
         
         // convert current sum to string
         string current_sum_string = num2str(current_sum);

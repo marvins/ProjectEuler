@@ -32,7 +32,7 @@ std::string Apply_XOR_Cipher( const std::string& input,
     
     // Iterate over input
     int counter = 0;
-    for( int i=0; i<input.size(); i++ ){
+    for( int i=0; i<(int)input.size(); i++ ){
     
         // Add output
         output.push_back( input[i] ^ cipher[counter] );
@@ -75,7 +75,7 @@ void Generate_Cipher_Keys( const int&                key_size,
         }
 
         // Increment
-        for( int i=0; i<cipher.size(); i++ ){
+        for( int i=0; i<(int)cipher.size(); i++ ){
             if( cipher[i] != 'z' ){
                 cipher[i]++;
                 break;
@@ -97,7 +97,7 @@ std::vector<int> Build_Histogram( const std::string& input )
     std::vector<int> histogram(256,0);
 
     // Iterate over input, computing values
-    for( int i=0; i<input.size(); i++ ){
+    for( int i=0; i<(int)input.size(); i++ ){
 
         // Add element
         histogram[input[i]]++;
@@ -116,7 +116,7 @@ bool Test_Histogram_Enough_Chars( const std::vector<int>& histogram )
     int64_t valid_chars = 0;
     int64_t invalid_chars = 0;
 
-    for( int i=0; i<histogram.size(); i++ ){
+    for( int i=0; i<(int)histogram.size(); i++ ){
        
         // Process Valid Characters
         if( ( i >= 'a' && i <= 'z' ) ||
@@ -154,7 +154,7 @@ void Prune_Cipher_Keys( std::deque<std::string>&  eligible_cipher_keys,
     std::vector<int> temp_histogram;
 
     // Iterate through keys
-    for( int i=0; i<eligible_cipher_keys.size(); i++ )
+    for( int i=0; i<(int)eligible_cipher_keys.size(); i++ )
     {
         // Check the histogram
         temp_histogram = Build_Histogram( eligible_results[i] );
@@ -179,7 +179,6 @@ std::string Load_File( const std::string& filename ){
     // Misc variable
     char buffer[256];
     std::string output;
-    int tempInt;
 
     // Open the filename
     std::ifstream fin;
@@ -233,7 +232,7 @@ int main( int argc, char* argv[] )
 
     // Compute sum
     int64_t sum = 0;
-    for( int i=0; i<eligible_results.front().size(); i++ ){
+    for( int i=0; i<(int)eligible_results.front().size(); i++ ){
         sum += eligible_results.front()[i];
     }
     std::cout << sum << std::endl;

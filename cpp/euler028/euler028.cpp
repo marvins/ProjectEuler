@@ -33,7 +33,7 @@ int main(int argc,char* argv[])
     int64_t sum = 1;
 
     // Iterate from 3 to 1001
-    for( int n=3; n<=1001; n+=2 ){
+    for( int64_t n=3; n<=spiral_width; n+=2 ){
         sum += ( a * n * n + b * n + c);
     }
 

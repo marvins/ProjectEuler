@@ -64,7 +64,7 @@ int main( int argc, char* argv[] )
     // Sum the totals
     int32_t max_count = 0;
     int32_t max_p;
-    for(int i=1; i<p_totals.size(); i++){
+    for(int i=1; i<(int)p_totals.size(); i++){
         
         if( p_totals[i] > max_count ){
             max_count = p_totals[i];

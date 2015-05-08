@@ -20,7 +20,6 @@ int main()
     // Variables
     long long value = 1;
     long long prev  = 0;
-    long int j = 100;
     int divisors = 1;
   
     // Get the divisor count

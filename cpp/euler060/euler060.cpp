@@ -5,6 +5,7 @@
  */
 
 // C++ Standard Libraries
+#include <algorithm>
 #include <cinttypes>
 #include <iostream>
 #include <memory>
@@ -76,8 +77,8 @@ class Supreme_Prime_Checker{
             
             // Create output
             std::vector<int64_t> output;
-            for( int i=0; i<m_lookup_table.size(); i++ )
-            for( int j=0; j<m_lookup_table[i].size(); j++ ){
+            for( int i=0; i<(int)m_lookup_table.size(); i++ )
+            for( int j=0; j<(int)m_lookup_table[i].size(); j++ ){
                 if( m_lookup_table[i][j] == 1 ){
                     output.push_back( i );
                 }
@@ -120,7 +121,7 @@ void Runner( const int& min_a, const int& max_a )
 
     // Iterate over A & B
     for( int a=min_a;  a<max_a;              a++ ){
-    for( int b=a+1;    b<valid_pairs.size(); b++ ){
+    for( int b=a+1;    b<(int)valid_pairs.size(); b++ ){
         
         // Check this section
         if( prime_checker->Is_Prime_Pair( valid_pairs[a], valid_pairs[b] ) == false )
@@ -129,14 +130,14 @@ void Runner( const int& min_a, const int& max_a )
         }
         
         // Iterate over C
-        for( int c=b+1;    c<valid_pairs.size(); c++ ){
+        for( int c=b+1;    c<(int)valid_pairs.size(); c++ ){
             if( prime_checker->Is_Prime_Pair( valid_pairs[a], valid_pairs[c] ) == false ||
                 prime_checker->Is_Prime_Pair( valid_pairs[b], valid_pairs[c] ) == false )
             {
                 continue;
             }
     
-            for( int d=c+1;    d<valid_pairs.size(); d++ ){
+            for( int d=c+1;    d<(int)valid_pairs.size(); d++ ){
             
                 if( prime_checker->Is_Prime_Pair( valid_pairs[a], valid_pairs[d] ) == false ||
                     prime_checker->Is_Prime_Pair( valid_pairs[b], valid_pairs[d] ) == false ||
@@ -145,7 +146,7 @@ void Runner( const int& min_a, const int& max_a )
                         continue;
                     }
                     
-                    for( int e=d+1;    e<valid_pairs.size(); e++ ){
+                    for( int e=d+1;    e<(int)valid_pairs.size(); e++ ){
                     
                         if( prime_checker->Is_Prime_Pair( valid_pairs[a], valid_pairs[e] ) != false &&
                             prime_checker->Is_Prime_Pair( valid_pairs[b], valid_pairs[e] ) != false &&
@@ -183,8 +184,8 @@ int main( int argc, char* argv[] ){
     prime_checker = Supreme_Prime_Checker::ptr_t(new Supreme_Prime_Checker( max_query_primes, primes));
     
     // Build the Prime Checker
-    for( int i=0; i<prime_list.size(); i++ ){
-    for( int j=0; j<prime_list.size(); j++ ){
+    for( int i=0; i<(int)prime_list.size(); i++ ){
+    for( int j=0; j<(int)prime_list.size(); j++ ){
         prime_checker->Is_Prime_Pair( prime_list[i], prime_list[j] );
     }}
     

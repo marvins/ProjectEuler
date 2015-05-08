@@ -5,6 +5,7 @@
 */
 
 // C++ Standard Libraries
+#include <algorithm>
 #include <cinttypes>
 #include <iostream>
 #include <string>

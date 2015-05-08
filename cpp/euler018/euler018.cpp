@@ -34,7 +34,7 @@ std::vector<std::vector<int>> Parse_Data( std::string const& filename )
         row.push_back(value);
         
         // If we have filled the row
-        if( row.size() == (output.size()+1)){
+        if( (int)row.size() == (int)(output.size()+1)){
             output.push_back(row);
             row.clear();
         }
@@ -71,7 +71,7 @@ int main(int argc, char* argv[])
     for( int row=triangle.size()-1; row> 0; row-- ){
         
         // Iterate over each column pair
-        for( int col=0; col<triangle[row].size()-1; col++ ){
+        for( int col=0; col<(int)triangle[row].size()-1; col++ ){
             if( triangle[row][col] > triangle[row][col+1] ){
                triangle[row-1][col] += triangle[row][col]; 
             }

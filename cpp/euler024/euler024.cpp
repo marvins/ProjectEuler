@@ -22,7 +22,7 @@ using namespace std;
 void Print( const vector<int>& a )
 {
 
-  for(int i=0; i<a.size(); i++)
+  for(int i=0; i<(int)a.size(); i++)
     cout << a[i];
   cout << endl;
 }
@@ -40,7 +40,7 @@ int main( int argc, char* argv[] )
 
 
     // Construct the array
-    for(int i=0; i<array.size(); i++)
+    for(int i=0; i<(int)array.size(); i++)
         array[i] = i;
 
     // Iterate through permutations
