@@ -32,8 +32,8 @@ class Primes{
          */
         Primes( datatype const&  max_prime,
                 bool const&      debug = false )
-            : m_max_prime_value(max_prime),
-              m_data(std::vector<bool>(max_prime,true)),
+           :  m_data(std::vector<bool>(max_prime,true)),
+              m_max_prime_value(max_prime),
               m_pos(2)
         {
             
@@ -94,7 +94,7 @@ class Primes{
 
             // Variables
             bool point = false;
-            long int value,num;
+            long int value;
 
             // If the position is below the array size
             if( m_pos < m_data.size() )
@@ -171,7 +171,6 @@ class Primes{
             std::vector<datatype> output;
             
             // Iterate over list
-            int64_t counter = 0;
             int min_val = std::min( (int64_t)max_prime, (int64_t)m_data.size());
             for( int i=0; i<min_val; i++ ){
                 if( m_data[i] == true ){

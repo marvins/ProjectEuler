@@ -5,7 +5,7 @@
 #----------------------------#
 NUM_THREADS_FLAG=0
 NUM_THREADS=1
-
+CMAKE_ARGS=''
 
 #--------------------------------#
 #-        Clean Software        -#
@@ -96,6 +96,11 @@ for ARG in "$@"; do
         #  Set number of threads
         '-j')
             NUM_THREADS_FLAG=1
+            ;;
+
+        #  Set debugging
+        '-d') 
+            CMAKE_ARGS="$CMAKE_ARGS -DCMAKE_BUILD_TYPE=Debug"
             ;;
 
         #  Parse other args

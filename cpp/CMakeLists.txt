@@ -14,8 +14,9 @@ Project( Project-Euler-CPP )
 #----------------------------#
 #-        Allow C++ 11x     -#
 #----------------------------#
-SET(CMAKE_CXX_FLAGS "-std=c++11 -O3")
-
+SET(CMAKE_CXX_FLAGS "-std=c++11 -Wall")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}     ${CMAKE_CXX_FLAGS}")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} ${CMAKE_CXX_FLAGS} -O3")
 
 #  Override Binary Directory
 set( EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/../../bin/cpp )
@@ -85,5 +86,6 @@ add_subdirectory( euler057 )
 add_subdirectory( euler058 )
 add_subdirectory( euler059 )
 add_subdirectory( euler060 )
+add_subdirectory( euler061 )
 
 

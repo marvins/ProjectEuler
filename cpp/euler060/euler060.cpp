@@ -116,7 +116,6 @@ std::vector<int64_t> valid_pairs;
 void Runner( const int& min_a, const int& max_a )
 {
     
-    int64_t global_counter = 0;
     int64_t sum;
 
     // Iterate over A & B
@@ -173,10 +172,6 @@ int main( int argc, char* argv[] ){
     // define our max prime value
     const int64_t max_prime = 3999999999;
     const int64_t max_query_primes = 10000;
-
-    // Define misc variables
-    const int required_primes = 5;
-
 
     // create prime sieve
     Primes<int64_t,std::false_type>  primes(max_prime);

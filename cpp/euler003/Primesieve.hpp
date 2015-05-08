@@ -78,7 +78,7 @@ class Primes{
 
             // Variables
             bool point = false;
-            long int value,num;
+            long int value;
 
             // If the position is below the array size
             if( m_pos < m_data.size() )

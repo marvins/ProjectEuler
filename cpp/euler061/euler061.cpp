@@ -4,71 +4,149 @@
  * @date   10/15/2013
  */
 #include <algorithm>
+#include <array>
 #include <cmath>
+#include <deque>
 #include <iomanip>
 #include <iostream>
 #include <set>
 #include <utility>
 #include <vector>
 
-#include <BigIntegerLibrary.hh>
-#include <StringUtilities.hpp>
+#include "../common/BigIntegerLibrary.hh"
+#include "../common/StringUtilities.hpp"
 
 using namespace std;
 
-/// Dictionary of Polygonal Numbers
-vector<set<string> > figurateList(9);
+// Polygon Flag Values
+std::bitset<10000> figurate_flag_set[6];
 
-/// Current List
-vector<string>  currentList;
 
 /**
- * 
- */
-bool is_cyclic( vector<string> const& slist ){
-
-    for( size_t i=0; i<slist.size()-1; i++ ){
-        if( slist[i][slist[i].size()-2] != slist[i+1][0] ) return false;
-        if( slist[i][slist[i].size()-1] != slist[i+1][1] ) return false;
-    }
-
-    if( slist[slist.size()-1][slist[slist.size()-1].size()-2] != slist[0][0] ) return false;
-    if( slist[slist.size()-1][slist[slist.size()-1].size()-1] != slist[0][1] ) return false;
-
-    return true;
+ * @brief Check if cyclic
+*/
+bool Is_Cyclic( uint16_t const& value1,
+                uint16_t const& value2 )
+{
+   return ((value1%100) == (value2/100)); 
 }
 
 /**
- * 
+ * @brief Polygon of n given j
  */
 int Pjn( int const& j, int const& n ){
 
     switch( j ){
-
         case 3:
             return (n*(n+1)/2);
-
         case 4:
             return (n*n);
-
         case 5:
             return (n*(3*n-1)/2);
-
         case 6:
             return (n*(2*n-1));
-
         case 7:
             return (n*(5*n-3)/2);
-
         case 8:
             return (n*(3*n-2));
-
         default:
             throw string("Error: Unknown value");
             return -1;
-
     }
     return -1;
+}
+
+
+bool Is_Polygonal( int const& poly, const uint16_t& value ){
+    return (figurate_flag_set[poly][value] == 1);
+}
+
+bool Is_Polygonal( int const& poly, const std::array<uint16_t,6>& value ){
+    for( int i=0; i<6; i++ ){ 
+        if( Is_Polygonal( poly, value[i] ) == true ){
+            return true;
+        }
+    }
+    return false;
+}
+
+/**
+ * @brief Is Polygon
+*/
+bool Is_Polygonal_Any( const uint16_t& value ){
+    for( int i=0; i<6; i++ ){
+        if( Is_Polygonal( i, value ) == true ){ return true; }
+    }
+    return false;
+}
+
+
+/**
+ * @brief Compute a recursive solution
+*/
+void Compute_Solution( std::array<uint16_t,6>& data,
+                       std::bitset<6>&         polys_set,
+                       const int&              index,
+                       int                     sum )
+{
+
+    // Flags
+    bool is_polygonal;
+
+    // Check if 6
+    if( index == 6 ){
+
+        // Check counter
+        for( int i=0; i<6; i++ ){
+            if( polys_set[i] != 1 ){ return; }
+        }
+
+        std::cout << sum << std::endl;
+        std::exit(1);
+        return;
+    }
+
+    // Iterate
+    for( uint16_t i=1000; i<10000; i++ )
+    {
+        // At index = 5, we need to check with the first
+        if( index == 5 ){
+            if( (Is_Cyclic( data[index-1], i ) && Is_Cyclic( i, data[0])) == false ){
+                continue;
+            }
+        }
+        // Skip this test on the first index
+        else if( index > 0 ){
+            if( Is_Cyclic( data[index-1], i) == false ){
+                continue;
+            }
+        }
+
+        // Check figurate
+        if( Is_Polygonal_Any(i) == false ){
+            continue;
+        }
+
+        // Check duplicates
+        for( int j=0; j<index; j++ ){
+            if( i == data[j] ){ 
+                continue; 
+            }
+        }
+
+        // Set the data
+        data[index] = i;
+
+        // Proceed
+        bool swap_flag = false;
+        for( int j=0; j<6; j++ ){
+            if( Is_Polygonal(j, i) == true && polys_set[j] == 0 ){
+                polys_set[j] = 1;
+                Compute_Solution( data, polys_set, index + 1, sum + i );
+                polys_set[j] = 0;
+            }
+        }
+    }
 }
 
 
@@ -77,87 +155,48 @@ int Pjn( int const& j, int const& n ){
  */
 int main( int argc, char* argv[] ){
 
-    try{
-            
-        // iterate through the list, building the sets
-        for( size_t i=3; i<=8; i++ ){
+    // Misc Variables
+    int x, idx;
+    
+    // Initialize the flag sets
+    for( int i=0; i<6; i++ ){
+        figurate_flag_set[i] = 0;
+    }
+    
+    // iterate through the list, building the sets
+    for( size_t i=3; i<=8; i++ ){
 
-            // counter
-            int x = 0;
+        // counter
+        x = 0;
 
-            // add values
-            while( true ){
+        // add values
+        while( true ){
 
-                // compute number
-                string val = num2str(Pjn(i,x));
+            // compute number
+            idx = Pjn(i,x);
 
-                // if the value is less than 4, continue
-                if( val.size() < 4 ){ x++; continue; }
-
-                // if the value is greater than 4, break
-                if( val.size() > 4 ){ break; }
-
-                // add to dictionary
-                figurateList[i].insert(val);
-
-                // add to the current list
-                currentList.push_back(val);
-
+            // Skip if below 1000
+            if( idx < 1000 ){ 
                 x++;
+                continue; 
             }
 
+            // if the value is greater than 4, break
+            if( idx >= 10000 ){ break; }
+
+            // Set flag
+            figurate_flag_set[i-3][idx] = 1;
+            
+            // Increment count
+            x++;
         }
 
-        // compute permutations
-        BigInteger _c = 0;
-        BigInteger _max = (factorial( currentList.size() )/(factorial( currentList.size() - 6 )*factorial(6)));
-
-        // sort all values
-        std::sort(   currentList.begin(), currentList.end() );
-
-        // remove all duplicates
-        std::unique( currentList.begin(), currentList.end() );
-        std::cout.precision(6);
-        
-        // begin iterating over permutations of the list
-        vector<string> tempList(6);
-        int x = 0;
-        do{
-
-            // build list
-            for( size_t i=0; i<6; i++ )
-                tempList[i] = currentList[i];
-
-            // sort permutations
-            std::sort( tempList.begin(), tempList.end() );
-
-            // test permutations
-            do{
-
-                // check front and back
-                if( is_cyclic( tempList ) == true ){
-                    cout << "Output" << endl;
-                    for( size_t v=0; v<tempList.size()-1; v++ )
-                        cout << tempList[v] << endl;
-                    return 0;
-                }
-
-            } while( std::next_permutation( tempList.begin(), tempList.end() ));
-            
-            // increment
-            _c++;
-
-            if( _c % 50000 == 0 ){
-                cout << std::fixed  << ((double)_c.toLong()/_max.toLong())*100 << endl;
-            }
-
-        } while ( std::next_permutation( currentList.begin(), currentList.end() ));
-
-
-    } catch ( string e ){
-        cout << e << endl;
     }
 
+    // Call the compute method
+    std::array<uint16_t,6> placeholder;
+    std::bitset<6> polys_set = 0;
+    Compute_Solution( placeholder, polys_set, 0, 0 );
 
     return 0;
 }
