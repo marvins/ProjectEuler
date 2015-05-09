@@ -87,5 +87,7 @@ add_subdirectory( euler058 )
 add_subdirectory( euler059 )
 add_subdirectory( euler060 )
 add_subdirectory( euler061 )
+add_subdirectory( euler062 )
+add_subdirectory( euler063 )
 
 
