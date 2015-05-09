@@ -16,7 +16,6 @@ int main()
     long long sum = 0;;
     long int pos = 0;
     long int max = 2000000;
-    int i=0;
 
     /// Start building prime values
     list.prime_start();

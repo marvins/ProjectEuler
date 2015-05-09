@@ -41,7 +41,6 @@ void count( int64_t& value ,
 int main( int argc, char* argv[] )
 {
     // Variables
-    int64_t value = 13;
     int64_t counter = 0;
     int64_t temp;
     int64_t max = 0;

@@ -66,7 +66,6 @@ int main( int argc, char* argv[] )
 {
     // Variables
     int64_t total=0;
-    int limit;
 
     // Iterate to 1000
     for(int i=1; i<=1000; i++)

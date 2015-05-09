@@ -5,6 +5,7 @@
 */
 
 // C++ Standard Libraries
+#include <algorithm>
 #include <cmath>
 #include <deque>
 #include <iostream>

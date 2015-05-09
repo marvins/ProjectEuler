@@ -76,14 +76,9 @@ class Primes{
         int64_t prime_next(bool& end )
         {
 
-            // Variables
-            bool point = false;
-            long int value;
-
             // If the position is below the array size
-            if( m_pos < m_data.size() )
+            if( m_pos < (int)m_data.size() )
             {
-                point = is_prime(value);
                 while(!is_prime(m_pos) && (m_pos!=-1)){
                     m_pos++;
                     if( m_pos > MAX ){ 
@@ -94,7 +89,7 @@ class Primes{
 
                 m_pos++;
 
-                if((m_pos-1) > m_data.size()||(m_pos == -1))
+                if((m_pos-1) > (int)m_data.size() || (m_pos == -1))
                 {
                     end = true;
                     return 0;

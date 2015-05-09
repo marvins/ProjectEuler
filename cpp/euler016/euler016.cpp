@@ -31,7 +31,7 @@ int main( int argc, char* argv[] )
         array[0] *= 2;
 
         // Iterate over values
-        for( int j=1; j<array.size(); j++)
+        for( int j=1; j<(int)array.size(); j++)
         {
             // power the array
             array[j] *= 2;
@@ -44,7 +44,7 @@ int main( int argc, char* argv[] )
     }
 
     // Sum the values
-    for(int i=0; i<array.size(); i++)
+    for(int i=0; i<(int)array.size(); i++)
     {
         sum += array[i];
     }

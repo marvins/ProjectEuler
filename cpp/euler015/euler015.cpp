@@ -22,7 +22,7 @@ int main( int argc, char* argv[] )
     std::vector<std::vector<int64_t> > table(rows+1, std::vector<int64_t>(rows+1, 0));
     
     // Initialize the table
-    for( int i=0; i<table.size(); i++ ){
+    for( int i=0; i<(int)table.size(); i++ ){
 
         // Set to zero
         table[i][0] = 1;
@@ -30,8 +30,8 @@ int main( int argc, char* argv[] )
     }
 
     // Solve the table
-    for( int i=1; i<table.size(); i++ )
-    for( int j=1; j<table[i].size(); j++ ){
+    for( int i=1; i<(int)table.size(); i++ )
+    for( int j=1; j<(int)table[i].size(); j++ ){
         table[i][j] = table[i-1][j] + table[i][j-1];
     }
 

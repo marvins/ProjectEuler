@@ -38,7 +38,7 @@ class An_Entry{
         */
         void Update( std::vector<int> const& prime_list )
         {
-            for( int i=0; i<prime_list.size(); i++ ){
+            for( int i=0; i<(int)prime_list.size(); i++ ){
                 if( prime_list[i] != 1 && prime_list[i] != m_id ){
                     m_prime_set.insert( prime_list[i] );
                 }
@@ -96,7 +96,7 @@ void Prune_List( const int64_t&          value,
     divisor_list.clear();
     
     // Iterate over the divisor list
-    for( int i=0; i<value_list.size(); i++ )
+    for( int i=0; i<(int)value_list.size(); i++ )
     {
         // If the prime is not false, then check its own entry list
         if( primes.is_prime(value_list[i]) == false )
@@ -130,7 +130,6 @@ int main( int argc, char* argv[] )
 
     // Temp Divisor List
     std::vector<int> divisor_list;
-    bool flag = false;
     int64_t counter = 0;
 
     // List of Entries
@@ -149,11 +148,9 @@ int main( int argc, char* argv[] )
         Prune_List( i, divisor_list, entry_list, primes );
         
         // Check size
-        if( divisor_list.size() == 4 ){
-            flag = true;
+        if( (int)divisor_list.size() == 4 ){
             counter++;
         }else{
-            flag = false;
             counter = 0;
         }
 

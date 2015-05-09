@@ -22,7 +22,7 @@ void Reset_Array( vector<int64_t>&  value,
 {
     // Start setting value
     value[0] = s;
-    for(int i=1; i<value.size(); i++ ){
+    for(int i=1; i<(int)value.size(); i++ ){
         value[i] = 0;
     }
 }
@@ -91,7 +91,6 @@ int main( int argc, char* argv[] )
     // Create the two arrays
     vector<int64_t>  value(range);
     vector<int64_t>  total_sum(range);
-    int64_t sum=1;
 
     // Start processing
     Reset_Array( total_sum, 1);

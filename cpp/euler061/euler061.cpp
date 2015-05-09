@@ -5,6 +5,7 @@
  */
 #include <algorithm>
 #include <array>
+#include <bitset>
 #include <cmath>
 #include <deque>
 #include <iomanip>
@@ -160,7 +161,7 @@ int main( int argc, char* argv[] ){
     }
     
     // iterate through the list, building the sets
-    for( size_t i=3; i<=8; i++ ){
+    for( int i=3; i<=8; i++ ){
 
         // counter
         x = 0;

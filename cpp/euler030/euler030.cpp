@@ -40,7 +40,7 @@ int main( int argc, char* argv[] )
 
         // Iterate over the number
         sum = 0;
-        for( int d = 0; d < value_str.size(); d++ ){
+        for( int d = 0; d < (int)value_str.size(); d++ ){
             
             // Convert the char to int64
             n = value_str[d] - '0';

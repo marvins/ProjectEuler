@@ -40,15 +40,15 @@ bool Is_Pandigital( const int64_t&  value01,
     std::vector<bool> histogram(10, false);
     
     // Check each value
-    for( int i=0; i<val_str_01.size(); i++ )
+    for( int i=0; i<(int)val_str_01.size(); i++ )
         histogram[val_str_01[i]-'0'] = true;
-    for( int i=0; i<val_str_02.size(); i++ )
+    for( int i=0; i<(int)val_str_02.size(); i++ )
         histogram[val_str_02[i]-'0'] = true;
-    for( int i=0; i<val_str_03.size(); i++ )
+    for( int i=0; i<(int)val_str_03.size(); i++ )
         histogram[val_str_03[i]-'0'] = true;
 
     // Check if there are any false values
-    for( int i=1; i<histogram.size(); i++ )
+    for( int i=1; i<(int)histogram.size(); i++ )
         if( histogram[i] == false )
             return false;
 
