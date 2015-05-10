@@ -4,6 +4,8 @@
 #ifndef __UTILS_STRING_UTILITIES_HPP__
 #define __UTILS_STRING_UTILITIES_HPP__
 
+// C++ Standard Libraries
+#include <iomanip>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -49,6 +51,18 @@ std::string num2str( TP const& value ){
 
     std::stringstream sin;
     sin << value;
+    return sin.str();
+}
+
+
+/**
+ *  @brief Convert a number to a string
+ */
+template <typename TP>
+std::string num2str( TP const& value, const int& precision )
+{
+    std::stringstream sin;
+    sin << std::setprecision(precision) << value;
     return sin.str();
 }
 
