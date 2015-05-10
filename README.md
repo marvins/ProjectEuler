@@ -68,10 +68,10 @@ Project Euler solutions in different languages.  Mostly for me to remember quirk
 | 060     | X   |         |        |        |
 | 061     | X   |         |        |        |
 | 062     | X   |         |        |        |
-| 063     |     |         |        |        |
-| 064     |     |         |        |        |
-| 065     |     |         |        |        |
-| 066     |     |         |        |        |
+| 063     | X   |         |        |        |
+| 064     | X   |         |        |        |
+| 065     | X   |         |        |        |
+| 066     | X   |         |        |        |
 | 067     |     |         |        |        |
 | 068     |     |         |        |        |
 | 069     |     |         |        |        |
