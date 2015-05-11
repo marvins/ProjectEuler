@@ -89,8 +89,12 @@ class Primes{
          *
          * @param[out] end Check if the value is the last prime number.
          */
-        int64_t prime_next(bool& end )
+        datatype prime_next(bool& end, bool const& advance_iterator = true)
         {
+            // IF the advance flag is off, don't iterate
+            if( advance_iterator == false ){
+                return m_pos - 1;
+            }
 
             // If the position is below the array size
             if( m_pos < m_data.size() )

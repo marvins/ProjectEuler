@@ -16,6 +16,7 @@
 #include <vector>
 
 // Common Libraries
+#include "Primesieve.hpp"
 #include "StringUtilities.hpp"
 
 /**
@@ -223,6 +224,61 @@ bool Is_Pandigital( const std::string& value )
         if( histogram[i] == false ){ return false; }
     }
     return true;
+}
+
+/**
+ * @brief GCD
+*/
+template <typename DataType>
+DataType GCD( DataType a,
+              DataType b )
+{
+    while( a != 0 && b != 0 ){
+        if( a > b ){
+            a = a%b;
+        }
+        else{
+            b = b%a;
+        }
+    }
+
+    if( a > 0 ) return a;
+        return b;
+}
+
+/**
+ * @brief Euler Totient Function
+*/
+template <typename DataType>
+DataType Euler_Totient( DataType const& n )
+{
+    // Iterate 
+    DataType t=0;
+    for( DataType i=1; i<n; i++ ){
+        if( GCD(i,n) == 1 ){
+            t++;
+        }
+    }
+    return t;
+}
+
+/**
+ * @brief Euler Totient Function
+*/
+template <typename DataType>
+DataType Euler_Totient( DataType const& n,
+                        Primes<DataType> const& sieve )
+{
+    // Iterate 
+    DataType t=n;
+    for( DataType i=1; i<n/2; i++ ){
+        if( n % i == 0 &&
+            sieve.is_prime(i) )
+        {
+            t *= (1 - (1 / (double)i));
+        }
+    }
+    return t;
 }
 
 #endif
