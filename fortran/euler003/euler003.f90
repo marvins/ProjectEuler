@@ -12,7 +12,8 @@ PROGRAM Euler003
     LOGICAL, ALLOCATABLE, DIMENSION(:) :: prime_list
 
 !  Set original
-max_prime_factor = 600851475143/2
+!max_prime_factor = 600851475143/2
+max_prime_factor = 60
 
 !  Allocate Memory
 ALLOCATE( prime_list(2:max_prime_factor ))

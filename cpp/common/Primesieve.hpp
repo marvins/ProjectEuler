@@ -26,7 +26,11 @@ class Primes{
 
         /// Define our datatype
         typedef DATATYPE datatype;
-        
+
+        /// Pointer TYpe
+        typedef std::shared_ptr<Primes<DATATYPE,DEBUG>> ptr_t;
+       
+
         /**
          * @brief Constructor given maximum value.
          */

@@ -16,7 +16,7 @@ Project( Project-Euler-CPP )
 #----------------------------#
 SET(CMAKE_CXX_FLAGS "-std=c++11 -Wall")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}     ${CMAKE_CXX_FLAGS}")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} ${CMAKE_CXX_FLAGS} -O3")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} ${CMAKE_CXX_FLAGS} -O2")
 
 #  Override Binary Directory
 set( EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/../../bin/cpp )
@@ -95,6 +95,7 @@ add_subdirectory( euler066 )
 add_subdirectory( euler067 )
 add_subdirectory( euler068 )
 add_subdirectory( euler069 )
+add_subdirectory( euler070 )
 add_subdirectory( euler080 )
 add_subdirectory( euler084 )
 add_subdirectory( euler500 )

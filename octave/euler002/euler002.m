@@ -9,10 +9,10 @@
 addpath('octave/common')
 
 %   Summation
-result = 0
+result = 0;
 
 %  Set our max value
-max_value = 4000000
+max_value = 4000000;
 
 %  Get the Max Fib Number
 Fmax = Find_Max_Fibonacci( max_value );
@@ -21,7 +21,7 @@ Fmax = Find_Max_Fibonacci( max_value );
 for n = (1:Fmax)
 
     %  Get the value
-    value = Fibonacci(n)
+    value = Fibonacci(n);
 
     %  Check if the value is even
     if mod(value,2) == 0

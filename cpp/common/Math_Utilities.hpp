@@ -173,6 +173,30 @@ LIST_TYPE  To_Bit_Array( DATATYPE const& value )
     return output;
 }
 
+/**
+ * @brief Check if Permutation
+*/
+template <typename LISTTYPE>
+bool Is_Permutation( LISTTYPE list1,
+                     LISTTYPE list2 )
+{
+    // Check sizes
+    if( list1.size() != list2.size() ){
+        return false;
+    }
+
+    // Sort both lists
+    std::sort( list1.begin(), list1.end() );
+    std::sort( list2.begin(), list2.end() );
+
+    // Check the lists
+    for( int i=0; i<list1.size(); i++ ){
+        if( list1[i] != list2[i] ){
+            return false;
+        }
+    }
+    return true;
+}
 
 /**
  * @brief Check if value is palindrome
@@ -269,13 +293,22 @@ template <typename DataType>
 DataType Euler_Totient( DataType const& n,
                         Primes<DataType> const& sieve )
 {
+    // Dummy Condition
+    if( n == 1 ){ return 1; }
+    if( n < 2 ){ return 0; }
+
+    // Lehmer's Conjecture
+    if( sieve.is_prime(n) == true ){
+        return (n-1);
+    }
+
     // Iterate 
     DataType t=n;
-    for( DataType i=1; i<n/2; i++ ){
+    for( DataType i=2; i<=n/2; i++ ){
         if( n % i == 0 &&
             sieve.is_prime(i) )
         {
-            t *= (1 - (1 / (double)i));
+            t *= (1 - (1.0 / i));
         }
     }
     return t;
