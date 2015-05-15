@@ -8,10 +8,21 @@
 PROGRAM Euler003
     USE PrimeNumberModule
     IMPLICIT none
-    INTEGER :: sum, counter, temp_value, max_fib_number, Fmax
+    INTEGER :: max_prime_factor, i
+    LOGICAL, ALLOCATABLE, DIMENSION(:) :: prime_list
 
-!  Set running sum (Start with 2 as that is automatic)
-sum = 0
+!  Set original
+max_prime_factor = 600851475143/2
+
+!  Allocate Memory
+ALLOCATE( prime_list(2:max_prime_factor ))
+
+!  Generate Prime Factors
+prime_list = Prime_Sieve( max_prime_factor )
+
+!  Start Iterating Over Prime Factors of the output
+
+
 
 !  Exit Program
 end
