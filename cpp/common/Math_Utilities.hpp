@@ -186,16 +186,9 @@ bool Is_Permutation( LISTTYPE list1,
     }
 
     // Sort both lists
-    std::sort( list1.begin(), list1.end() );
-    std::sort( list2.begin(), list2.end() );
-
-    // Check the lists
-    for( int i=0; i<list1.size(); i++ ){
-        if( list1[i] != list2[i] ){
-            return false;
-        }
-    }
-    return true;
+    return std::is_permutation( list1.begin(),
+                                list1.end(),
+                                list2.begin() );
 }
 
 /**
@@ -295,10 +288,11 @@ DataType Euler_Totient( DataType const& n,
 {
     // Dummy Condition
     if( n == 1 ){ return 1; }
-    if( n < 2 ){ return 0; }
+    if( n < 1 ){ return 0; }
 
     // Lehmer's Conjecture
-    if( sieve.is_prime(n) == true ){
+    if( sieve.is_prime(n) )
+    {
         return (n-1);
     }
 

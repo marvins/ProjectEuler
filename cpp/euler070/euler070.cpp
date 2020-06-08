@@ -16,7 +16,6 @@
 // Common Libraries
 #include "../common/Math_Utilities.hpp"
 #include "../common/Primesieve.hpp"
-#include "../common/StringUtilities.hpp"
 
 using namespace std;
 
@@ -26,6 +25,7 @@ std::atomic<uint64_t> min_n;
 Primes<uint64_t>::ptr_t primes;
 std::mutex mtx;
 
+std::mutex print_lck;
 
 /**
  * @brief Check if even digits exist.
@@ -57,29 +57,23 @@ void  Process_Euler_Totient_Range( const int& start_idx,
     // Iterate over values
     for( uint64_t i=start_idx; i<max_value; i += skip_counter )
     {
-        // Skip Even Number
-        if( i % 2 == 0 )
-        { 
-            continue;
-        }
-
         // Convert I to a string
-        value_str   = num2str( i );
+        value_str = std::to_string( i );
         
-        // Make sure there is at least one even number
-        if( !Check_Even_Digit( value_str ) )
-        {
-            continue;
-        }
-
         // Compute the totient
         totient = Euler_Totient( i, *primes );
 
         // Convert the totient to a string
         totient_str = num2str( totient );
         
+        {
+            std::unique_lock<std::mutex> lck( print_lck );
+            std::cout << "Value: " << i << ", Totient: " << totient_str << ", Not Permutation" << std::endl;
+        }
+
         // Compare strings
-        if( Is_Permutation( value_str, totient_str ) == true ){
+        if( Is_Permutation( value_str, totient_str ) )
+        {
             
             // Compute ratio
             ratio = (double)i / totient;
@@ -119,19 +113,22 @@ int main( int argc, char* argv[] )
     // Euler's Totient
     primes = std::make_shared<Primes<uint64_t>>( max_prime_value );
 
-    uint64_t tmp = 8319823;
-    std::cout << "Prime: " << primes->is_prime(tmp) << std::endl;
+    uint64_t tmp = 87109;
+    std::cout << "TMP: " << tmp << std::endl;
     std::cout << "ET1: " << Euler_Totient( tmp ) << std::endl;
     std::cout << "ET2: " << Euler_Totient( tmp, *primes ) << std::endl;
-    std::cin.get();
+    std::string t1("87109");
+    std::string t2("79180");
+    std::cout << "Test: " << std::boolalpha << std::is_permutation( t1.begin(), t1.end(), t2.begin() ) << std::endl;
 
     // Create threads
     std::vector<std::thread> threads;
-    for( int i=0; i<number_threads; i++ ){
-        threads.push_back(std::thread( Process_Euler_Totient_Range, 
-                                       i + 10, 
-                                       number_threads*2, 
-                                       max_search_value ));
+    for( int i=1; i<(number_threads+1); i++ )
+    {
+        threads.emplace_back( Process_Euler_Totient_Range, 
+                              i,
+                              number_threads, 
+                              max_search_value );
     }
     
     // Join Threads
