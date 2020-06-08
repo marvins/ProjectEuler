@@ -5,6 +5,8 @@
 #    Purpose: Build Project Euler 070 C++ Example
 #
 
+Find_Package( Threads )
+
 #-------------------------------#
 #-      Define our Sources     -#
 #-------------------------------#
@@ -21,4 +23,6 @@ add_executable( euler070
                 ${Euler070_Sources}
 )
 
+target_link_libraries( euler070
+                       Threads::Threads )
 

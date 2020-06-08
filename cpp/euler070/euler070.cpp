@@ -58,13 +58,17 @@ void  Process_Euler_Totient_Range( const int& start_idx,
     for( uint64_t i=start_idx; i<max_value; i += skip_counter )
     {
         // Skip Even Number
-        if( i % 2 == 0 ){ continue; }
+        if( i % 2 == 0 )
+        { 
+            continue;
+        }
 
         // Convert I to a string
         value_str   = num2str( i );
         
         // Make sure there is at least one even number
-        if( Check_Even_Digit( value_str ) == false ){ 
+        if( !Check_Even_Digit( value_str ) )
+        {
             continue;
         }
 

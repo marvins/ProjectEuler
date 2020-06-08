@@ -6,6 +6,8 @@
 #
 
 
+Find_Package( Threads )
+
 #-------------------------------#
 #-      Define our Sources     -#
 #-------------------------------#
@@ -22,4 +24,6 @@ add_executable( euler060
                 ${Euler060_Sources}
 )
 
+target_link_libraries( euler060
+                       Threads::Threads )
 
