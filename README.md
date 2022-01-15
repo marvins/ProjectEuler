@@ -4,9 +4,9 @@ Project Euler solutions in different languages.  Mostly for me to remember quirk
 
 ##Problems Solved##
 
-| Problem | C++ | Fortran | Octave | Python | Rust | 
-|---------|-----|---------|--------|--------|------|
-| 001     | X   | X       | X      | X      | X    |
+| Problem | C++ | Fortran | Octave | Python | Rust | Julia |
+|---------|-----|---------|--------|--------|------|-------|
+| 001     | X   | X       | X      | X      | X    |  X    |
 | 002     | X   | X       | X      | X      | X    |
 | 003     | X   |         |        |        |
 | 004     | X   |         |        |        |
