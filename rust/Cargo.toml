@@ -3,11 +3,11 @@ name = "project_euler"
 version = "0.1.0"
 edition = "2021"
 
-[lib]
-name = "euler"
-test = false
-bench = false
-path = "src/common/sieve.rs"
+#[lib]
+#name = "euler"
+#test = false
+#bench = false
+#path = "src/common/sieve.rs"
 
 [[bin]]
 name = "euler001"

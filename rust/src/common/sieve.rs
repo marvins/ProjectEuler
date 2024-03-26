@@ -1,15 +1,13 @@
-
-
 pub struct PrimeSieve {
-
+    maxValue: u64,
 }
 
-impl PrimeSieve {
+trait Sieve {
+    fn new ( maxValue: u64 ) -> Self;
+}
 
-    pub fn get() -> i64 {
-        
-        let i = 1234;
-        i
+impl Sieve for PrimeSieve {
+    fn new ( maxValue: u64 ) -> PrimeSieve {
+        return PrimeSieve { maxValue: maxValue };
     }
-
-} // End of Sieve impl
+}
