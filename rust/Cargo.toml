@@ -27,4 +27,10 @@ test = false
 bench = false
 path = "src/euler003/euler003.rs"
 
+[[bin]]
+name = "euler004"
+test = false
+bench = false
+path = "src/euler004/euler004.rs"
+
 [dependencies]

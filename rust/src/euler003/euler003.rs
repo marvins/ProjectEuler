@@ -2,7 +2,6 @@
 use std::collections::BTreeSet;
 
 pub struct PrimeSieve {
-    max_value: u64,
     primes: BTreeSet<u64>,
 }
 
@@ -38,8 +37,7 @@ impl Sieve for PrimeSieve {
             }
         }
 
-        return PrimeSieve { max_value: max_value,
-                            primes: primes };
+        return PrimeSieve { primes: primes };
     }
 }
 
@@ -50,15 +48,11 @@ fn main() {
 
     // Create a Prime Sieve for iterating over
     println!("Starting Prime Sieve Solver");
-    let mut ps: PrimeSieve = Sieve::new( max_val );
+    let ps: PrimeSieve = Sieve::new( max_val );
 
-    let mut pf : u64 = 1;
-
-    for p in &ps.primes {
-        
+    for p in &ps.primes {        
         if target_val % p == 0 {
             println!("Prime Factor: {}", p);
         }
-
     }
 }
