@@ -1,0 +1,30 @@
+[package]
+name = "project_euler"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "euler"
+test = false
+bench = false
+path = "src/common/sieve.rs"
+
+[[bin]]
+name = "euler001"
+test = false
+bench = false
+path = "src/euler001/euler001.rs"
+
+[[bin]]
+name = "euler002"
+test = false
+bench = false
+path = "src/euler002/euler002.rs"
+
+[[bin]]
+name = "euler003"
+test = false
+bench = false
+path = "src/euler003/euler003.rs"
+
+[dependencies]

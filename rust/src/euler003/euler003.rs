@@ -1,4 +1,6 @@
-mod proj_euler;
+mod sieve;
+
+use sieve::PrimeSieve;
 
 fn main() {
 
@@ -6,5 +8,5 @@ fn main() {
     let max_val = target_val / 2;
 
     // Create a Prime Sieve for iterating over
-    let sieve = proj_euler::PrimeSieve::new( max_val );
+    let sieve = PrimeSieve::new( max_val );
 }
